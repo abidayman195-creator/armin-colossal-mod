@@ -6,47 +6,22 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-/**
- * Tracks transformation state and titan assignments.
- *
- * assignedPlayers: players who have been given the Armin's Colossal power
- *                  (via /baot shifters set) — they can press B to transform.
- * playerToTitan:   players currently transformed, mapped to their titan entity UUID.
- */
 public class ArminsColossalTracker {
 
-    private static final Set<UUID> assignedPlayers = new HashSet<>();
+    private static final Set<UUID> assignedPlayers  = new HashSet<>();
     private static final Map<UUID, UUID> playerToTitan = new HashMap<>();
+    private static final Map<UUID, UUID> playerToNape  = new HashMap<>();
 
-    // ---- Assignment ----
+    public static void assign(UUID p)   { assignedPlayers.add(p); }
+    public static void unassign(UUID p) { assignedPlayers.remove(p); }
+    public static boolean hasAssignedTitan(UUID p) { return assignedPlayers.contains(p); }
 
-    public static void assign(UUID playerUuid) {
-        assignedPlayers.add(playerUuid);
-    }
+    public static void link(UUID player, UUID titan) { playerToTitan.put(player, titan); }
+    public static UUID getTitanUuid(UUID player)     { return playerToTitan.get(player); }
+    public static boolean isTransformed(UUID player) { return playerToTitan.containsKey(player); }
+    public static void unlink(UUID player)           { playerToTitan.remove(player); }
 
-    public static void unassign(UUID playerUuid) {
-        assignedPlayers.remove(playerUuid);
-    }
-
-    public static boolean hasAssignedTitan(UUID playerUuid) {
-        return assignedPlayers.contains(playerUuid);
-    }
-
-    // ---- Active transformation ----
-
-    public static void link(UUID playerUuid, UUID titanUuid) {
-        playerToTitan.put(playerUuid, titanUuid);
-    }
-
-    public static UUID getTitanUuid(UUID playerUuid) {
-        return playerToTitan.get(playerUuid);
-    }
-
-    public static boolean isTransformed(UUID playerUuid) {
-        return playerToTitan.containsKey(playerUuid);
-    }
-
-    public static void unlink(UUID playerUuid) {
-        playerToTitan.remove(playerUuid);
-    }
+    public static void linkNape(UUID player, UUID nape) { playerToNape.put(player, nape); }
+    public static UUID getNapeUuid(UUID player)         { return playerToNape.get(player); }
+    public static void unlinkNape(UUID player)          { playerToNape.remove(player); }
 }

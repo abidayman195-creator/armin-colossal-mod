@@ -1,3 +1,7 @@
 {
-  "entity.colossalmod.armins_colossal": "Armin's Colossal"
+  "entity.colossalmod.armins_colossal": "Armin's Colossal",
+  "entity.colossalmod.armins_colossal_nape": "Armin's Colossal Nape",
+  "key.colossalmod.transform": "Transform (Armin's Colossal)",
+  "key.colossalmod.steam": "Steam Ability",
+  "category.colossalmod": "Armin's Colossal Mod"
 }
