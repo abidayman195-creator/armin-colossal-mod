@@ -18,8 +18,11 @@ jobs:
           gradle-version: '8.11'
           cache-disabled: true
 
+      - name: Clean Loom cache
+        run: rm -rf ~/.gradle/caches/fabric-loom
+
       - name: Build
-        run: gradle build
+        run: gradle build --no-daemon
 
       - name: Upload JAR
         uses: actions/upload-artifact@v4
