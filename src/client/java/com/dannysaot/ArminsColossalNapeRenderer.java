@@ -26,7 +26,7 @@ public class ArminsColossalNapeRenderer extends MobEntityRenderer<ArminsColossal
 
     @Override
     public boolean shouldRender(ArminsColossalNapeEntity entity,
-                                net.minecraft.client.frustum.Frustum frustum,
+                                net.minecraft.client.render.Frustum frustum,
                                 double x, double y, double z) {
         // Only render when peaking
         return entity.isPeaking() && super.shouldRender(entity, frustum, x, y, z);
