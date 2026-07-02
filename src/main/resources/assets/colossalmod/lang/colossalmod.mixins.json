@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.dannysaot.colossalmod.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "TitanMovementMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

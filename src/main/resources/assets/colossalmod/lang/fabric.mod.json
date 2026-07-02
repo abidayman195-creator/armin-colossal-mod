@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "colossalmod",
+  "version": "${version}",
+  "name": "Armin's Colossal Mod",
+  "description": "Adds Armin's Colossal as a standalone transformable titan, powered by GeckoLib.",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.dannysaot.colossalmod.ColossalMod"
+    ],
+    "client": [
+      "com.dannysaot.colossalmod.client.ColossalModClient"
+    ]
+  },
+  "mixins": [
+    "colossalmod.mixins.json",
+    {
+      "config": "colossalmod.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.9",
+    "fabric-api": "*",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "geckolib": ">=4.9.1"
+  }
+}

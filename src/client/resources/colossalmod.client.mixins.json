@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.dannysaot.colossalmod.client.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "TitanCameraMixin",
+    "TitanAttackMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
